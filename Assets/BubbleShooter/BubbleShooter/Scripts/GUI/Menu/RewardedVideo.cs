@@ -26,7 +26,7 @@ public class RewardedVideo : MonoBehaviour//, IRewardedVideoAdListener
         reward.SetIconSprite(0);
         reward.gameObject.SetActive(true);
         InitScript.Instance.AddGems(addCoins);
-        MenuManager.Instance.MenuCurrencyShop.GetComponent<AnimationManager>().CloseMenu();
+       // MenuManager.Instance.MenuCurrencyShop.GetComponent<AnimationManager>().CloseMenu();
     }
 
     public void GetLifes()
@@ -72,7 +72,7 @@ public class RewardedVideo : MonoBehaviour//, IRewardedVideoAdListener
 
             reward.gameObject.SetActive(true);
             InitScript.Instance.AddGems(50);
-            MenuManager.Instance.MenuCurrencyShop.GetComponent<AnimationManager>().CloseMenu();
+            //MenuManager.Instance.MenuCurrencyShop.GetComponent<AnimationManager>().CloseMenu();
         }
         else if (currentReward == RewardedAdsType.GetLifes)
         {

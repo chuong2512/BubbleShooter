@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
 	public GameObject MenuPause;
 	public GameObject MenuWin;
 	public GameObject MenuFailed;
-	public GameObject MenuCurrencyShop;
+	//public GameObject MenuCurrencyShop;
 	public GameObject PrePlayBanner;
 	public GameObject PreWinBanner;
 	public GameObject RewardPopup;
@@ -91,7 +91,7 @@ public class MenuManager : MonoBehaviour
 
 	public void ShowCurrencyShop()
 	{
-		MenuCurrencyShop.SetActive(true);
+		//MenuCurrencyShop.SetActive(true);
 	}
 
 	public void ShowLifeShop()

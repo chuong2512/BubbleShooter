@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 using System.Collections.Generic;
 using System.Collections;
 using System;
@@ -20,8 +19,6 @@ public enum RewardedAdsType
 
 namespace InitScriptName
 {
-
-
     public class InitScript : MonoBehaviour
     {
         public static InitScript Instance;
@@ -47,7 +44,9 @@ namespace InitScriptName
         public static bool beaten;
         public static List<string> Beatedfriends;
         int messCount;
+
         public static bool loggedIn;
+
         //	public GameObject LoginButton;
         //	public GameObject InviteButton;
         public GameObject EMAIL;
@@ -77,7 +76,6 @@ namespace InitScriptName
         Hashtable mapFriends = new Hashtable();
 
 
-
         private string admobUIDAndroid;
         private string admobUIDIOS;
         public string rewardedVideoZone;
@@ -86,7 +84,6 @@ namespace InitScriptName
 
         public void Awake()
         {
-
             //AdsEvents.THIS.ShowBanner();
             Instance = this;
             if (LevelEditorBase.THIS == null)
@@ -98,7 +95,7 @@ namespace InitScriptName
 
 #if UNITY_INAPPS
 
-			gameObject.AddComponent<UnityInAppsIntegration>();
+            gameObject.AddComponent<UnityInAppsIntegration>();
 #endif
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("map"))
             {
@@ -106,6 +103,7 @@ namespace InitScriptName
                 //					GameObject.Find ("Canvas").transform.Find ("MenuPlay").gameObject.SetActive (false);
                 //
             }
+
             RestLifeTimer = PlayerPrefs.GetFloat("RestLifeTimer");
 
             //			if(InitScript.DateOfExit == "")
@@ -120,7 +118,8 @@ namespace InitScriptName
             TotalTimeForRestLifeSec = LevelEditorBase.THIS.TotalTimeForRestLifeSec;
 
             if (PlayerPrefs.GetInt("Lauched") == 0)
-            {    //First lauching
+            {
+                //First lauching
                 FirstTime = true;
                 Lifes = CapOfLife;
                 Gems = LevelEditorBase.THIS.FirstGems;
@@ -138,7 +137,6 @@ namespace InitScriptName
             //			ReloadBoosts ();
 
             boostPurchased = false;
-
         }
 
         void Start()
@@ -150,7 +148,7 @@ namespace InitScriptName
 
         public List<MapLevel> GetMapLevels()
         {
-            if (MapLevels.Count == 0)//1.4.4
+            if (MapLevels.Count == 0) //1.4.4
                 MapLevels = FindObjectsOfType<MapLevel>().OrderBy(ml => ml.Number).ToList();
 
             return MapLevels;
@@ -165,14 +163,11 @@ namespace InitScriptName
         }
 
 
-
         public static bool boostPurchased;
 
         void Update()
         {
-
         }
-
 
 
         public void SetGems(int count)
@@ -188,7 +183,6 @@ namespace InitScriptName
             Gems += count;
             PlayerPrefs.SetInt("Gems", Gems);
             PlayerPrefs.Save();
-
         }
 
         public void SpendGems(int count)
@@ -197,7 +191,6 @@ namespace InitScriptName
             Gems -= count;
             PlayerPrefs.SetInt("Gems", Gems);
             PlayerPrefs.Save();
-
         }
 
         public void RestoreLifes()
@@ -225,6 +218,7 @@ namespace InitScriptName
                 PlayerPrefs.SetInt("Lifes", Lifes);
                 PlayerPrefs.Save();
             }
+
             return Lifes;
         }
 
@@ -244,7 +238,6 @@ namespace InitScriptName
             }
             else
             {
-
             }
         }
 
@@ -263,11 +256,11 @@ namespace InitScriptName
 
         public void ClearLevelProgress(int level)
         {
-
         }
 
         void OnApplicationFocus(bool focusStatus)
-        {//2.1
+        {
+            //2.1
             GameObject music = GameObject.Find("Music");
             if (music)
             {
@@ -284,6 +277,7 @@ namespace InitScriptName
                 {
                     PlayerPrefs.SetFloat("RestLifeTimer", RestLifeTimer);
                 }
+
                 PlayerPrefs.SetInt("Lifes", Lifes);
                 PlayerPrefs.SetString("DateOfExit", DateTime.Now.ToString());
                 PlayerPrefs.SetInt("Gems", Gems);
@@ -295,7 +289,8 @@ namespace InitScriptName
         {
             if (EventSystem.current.IsPointerOverGameObject(-1))
                 return;
-            if (!MenuManager.Instance.MenuPlay.activeSelf && !MenuManager.Instance.MenuCurrencyShop.activeSelf /*&& !MenuManager.Instance.MenuLifeShop.activeSelf*/)
+            if (!MenuManager.Instance.MenuPlay.activeSelf /* && !MenuManager.Instance.MenuCurrencyShop.activeSelf*/
+                /*&& !MenuManager.Instance.MenuLifeShop.activeSelf*/)
             {
                 PlayerPrefs.SetInt("OpenLevel", args.Number);
                 PlayerPrefs.Save();
@@ -321,14 +316,12 @@ namespace InitScriptName
             }
 
 
-
             return (TargetType)0;
         }
 
         void OnEnable()
         {
             LevelsMap.LevelSelected += OnLevelClicked;
-
         }
 
         void OnDisable()
@@ -348,10 +341,6 @@ namespace InitScriptName
             //		FacebookSNSAgent.OnUserFriendsArrived -= OnUserFriendsArrived;
         }
 
-
         #endregion
-
-
     }
-
 }
