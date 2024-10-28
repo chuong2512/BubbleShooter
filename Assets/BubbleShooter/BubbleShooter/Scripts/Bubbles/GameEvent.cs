@@ -13,7 +13,6 @@ public enum GameState
 	Highscore,
 	OutOfMoves,
 	GameOver,
-	PreFailed,
 	Pause,
 	WinProccess,
 	WinBanner,
@@ -276,7 +275,7 @@ public class GameEvent : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 		GameObject.Find("Canvas").transform.Find("OutOfMoves").gameObject.SetActive(false);
 		if (LevelData.LimitAmount <= 0) {
-			GameStatus = GameState.PreFailed;
+			GameStatus = GameState.GameOver;
 		}
 		yield return new WaitForSeconds(0.1f);
 

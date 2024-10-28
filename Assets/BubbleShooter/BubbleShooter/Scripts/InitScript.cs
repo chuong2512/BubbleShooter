@@ -295,7 +295,7 @@ namespace InitScriptName
         {
             if (EventSystem.current.IsPointerOverGameObject(-1))
                 return;
-            if (!MenuManager.Instance.MenuPlay.activeSelf && !MenuManager.Instance.MenuCurrencyShop.activeSelf && !MenuManager.Instance.MenuLifeShop.activeSelf)
+            if (!MenuManager.Instance.MenuPlay.activeSelf && !MenuManager.Instance.MenuCurrencyShop.activeSelf /*&& !MenuManager.Instance.MenuLifeShop.activeSelf*/)
             {
                 PlayerPrefs.SetInt("OpenLevel", args.Number);
                 PlayerPrefs.Save();

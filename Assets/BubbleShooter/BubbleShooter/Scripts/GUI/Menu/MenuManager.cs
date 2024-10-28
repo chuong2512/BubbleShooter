@@ -13,10 +13,9 @@ public class MenuManager : MonoBehaviour
 	public GameObject MenuFailed;
 	public GameObject MenuCurrencyShop;
 	public GameObject PrePlayBanner;
-	public GameObject PreFailedBanner;
 	public GameObject PreWinBanner;
 	public GameObject RewardPopup;
-	public GameObject MenuLifeShop;
+	//public GameObject MenuLifeShop;
 	public GameObject MenuBoostShop;
 	public GameObject MenuSettings;
 	public GameObject MenuPurchased;
@@ -74,10 +73,6 @@ public class MenuManager : MonoBehaviour
 			MenuPause.SetActive(true);
 		}
 
-		if (status == GameState.PreFailed) {
-			PreFailedBanner.SetActive(true);
-		}
-
 		if (status == GameState.PrePlayBanner) {
 			PrePlayBanner.SetActive(true);
 		}
@@ -101,7 +96,7 @@ public class MenuManager : MonoBehaviour
 
 	public void ShowLifeShop()
 	{
-		MenuLifeShop.SetActive(true);
+		//MenuLifeShop.SetActive(true);
 	}
 
 	public void ShowPurchased(BoostType bType)

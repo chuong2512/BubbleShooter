@@ -35,13 +35,13 @@ public class RewardedVideo : MonoBehaviour//, IRewardedVideoAdListener
         reward.SetIconSprite(1);
         reward.gameObject.SetActive(true);
         InitScript.Instance.RestoreLifes();
-        MenuManager.Instance.MenuLifeShop.GetComponent<AnimationManager>().CloseMenu();
+        //MenuManager.Instance.MenuLifeShop.GetComponent<AnimationManager>().CloseMenu();
 
     }
 
     public void ContinuePlay()
     {
-        MenuManager.Instance.PreFailedBanner.GetComponent<AnimationManager>().GoOnFailed();
+        //MenuManager.Instance.PreFailedBanner.GetComponent<AnimationManager>().GoOnFailed();
     }
 
     public void ShowRewardedAds()
@@ -79,11 +79,11 @@ public class RewardedVideo : MonoBehaviour//, IRewardedVideoAdListener
             reward.SetIconSprite(1);
             reward.gameObject.SetActive(true);
             InitScript.Instance.RestoreLifes();
-            MenuManager.Instance.MenuLifeShop.GetComponent<AnimationManager>().CloseMenu();
+           // MenuManager.Instance.MenuLifeShop.GetComponent<AnimationManager>().CloseMenu();
         }
         else if (currentReward == RewardedAdsType.GetGoOn)
         {
-            MenuManager.Instance.PreFailedBanner.GetComponent<AnimationManager>().GoOnFailed();
+            //MenuManager.Instance.PreFailedBanner.GetComponent<AnimationManager>().GoOnFailed();
         }
     }
 
